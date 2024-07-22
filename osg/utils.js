@@ -1,7 +1,7 @@
 import P from '../bluebird.js';
 import Timer from '../osg/Timer.js';
 import notify from '../osg/notify.js';
-import mecullVisitorHelper from'../osg/cullVisitorHelper.js'
+
 var utils = {};
 
 utils.extend = function() {
@@ -208,7 +208,7 @@ utils.setNodeTypeID = function(classObject) {
 };
 
 utils.createPrototypeNode = function(Constructor, prototype, libraryName, className) {
-    var cullVisitorHelper = mecullVisitorHelper;
+    var cullVisitorHelper = require('../osg/cullVisitorHelper.js');
     var parentNodeTypeID = prototype.nodeTypeID;
     utils.createPrototypeObject(Constructor, prototype, libraryName, className);
 

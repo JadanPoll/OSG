@@ -1,12 +1,12 @@
 import notify from '../osg/notify.js';
 import WebGLUtils from '../osgViewer/webgl-utils.js';
 import Options from '../osg/Options.js';
-import meTexture from '../osg/Texture.js';
+
 var Texture;
 
 var WebGLCaps = function() {
     // circular deps with texture
-    if (!Texture) Texture = meTexture;
+    if (!Texture) Texture = require('../osg/Texture.js');
 
     this._checkRTT = {};
     this._webGLExtensions = {};

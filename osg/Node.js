@@ -8,9 +8,7 @@ import { mat4 } from '../osg/glMatrix.js';
 import PooledResource from '../osg/PooledResource.js';
 import ComputeMatrixFromNodePath from '../osg/computeMatrixFromNodePath.js';
 import TransformEnums from '../osg/transformEnums.js';
-import meComputeBoundsVisitor from '../osg/ComputeBoundsVisitor.js'
 
-console.log("Nathan")
 /**
  *  Node that can contains child node
  *  @class Node
@@ -349,7 +347,7 @@ utils.createPrototypeNode(
 
         computeBoundingBox: function(bbox) {
             // circular dependency... not sure if the global visitor instance should be instancied here
-            var ComputeBoundsVisitor = meComputeBoundsVisitor;
+            var ComputeBoundsVisitor = require('../osg/ComputeBoundsVisitor.js');
             var cbv = (ComputeBoundsVisitor.instance =
                 ComputeBoundsVisitor.instance || new ComputeBoundsVisitor());
             cbv.setNodeMaskOverride(~0x0); // traverse everything to be consistent with computeBoundingSphere

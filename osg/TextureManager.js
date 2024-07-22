@@ -1,6 +1,5 @@
 import notify from '../osg/notify.js';
 import Timer from '../osg/Timer.js';
-import meTexture from '../osg/Texture.js'
 var TextureProfile = function(target, internalFormat, width, height) {
     this._target = target;
     this._internalFormat = internalFormat;
@@ -20,7 +19,7 @@ TextureProfile.prototype = {
         );
     },
     computeSize: function() {
-        var Texture = meTexture;
+        var Texture = require("../osg/Texture.js");
 
         var numBitsPerTexel = 0;
         switch (this._internalFormat) {

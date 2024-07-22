@@ -1,7 +1,7 @@
 import notify from '../osg/notify.js';
 import BoundingSphere from '../osg/BoundingSphere.js';
 import { mat4 } from '../osg/glMatrix.js';
-import meComputeBoundsVisitor from '../osg/ComputeBoundsVisitor.js'
+
 // Base class for Camera / User manipulator
 var Manipulator = function(boundStrategy) {
     this._boundStrategy = boundStrategy;
@@ -49,7 +49,7 @@ Manipulator.prototype = {
             if (this._computeBoundNodeMaskOverride === ~0x0) {
                 box = node.getBoundingBox();
             } else {
-                var ComputeBoundsVisitor = meComputeBoundsVisitor;
+                var ComputeBoundsVisitor = require('../osg/ComputeBoundsVisitor.js');
                 var cbv = new ComputeBoundsVisitor();
                 cbv.setNodeMaskOverride(this._computeBoundNodeMaskOverride);
                 cbv.reset();

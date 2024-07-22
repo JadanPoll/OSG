@@ -3,7 +3,7 @@ import utils from '../osg/utils.js';
 import NodeVisitor from '../osg/NodeVisitor.js';
 import PagedLOD from '../osg/PagedLOD.js';
 import Timer from '../osg/Timer.js';
-import mereaderParser from '../osgDB/readerParser.js'
+
 var FindPagedLODsVisitor = function() {
     NodeVisitor.call(this, NodeVisitor.TRAVERSE_ALL_CHILDREN);
     this._activePagedLODList = undefined;
@@ -351,7 +351,7 @@ utils.createPrototypeObject(
         },
 
         loadNodeFromURL: function(url) {
-            var ReaderParser = mereaderParser;
+            var ReaderParser = require('../osgDB/readerParser.js');
             // Call to ReaderParser just in case there is a custom readNodeURL Callback
             // See osgDB/options.js and/or osgDB/Input.js
             // TODO: We should study if performance can be improved if separating the XHTTP request from

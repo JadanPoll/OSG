@@ -1,7 +1,7 @@
 import utils from '../osg/utils.js';
 import notify from '../osg/notify.js';
 import Node from '../osgShader/node/Node.js';
-//import meosgShader from '../osgShader/osgShader.js'
+
 
 /*
 
@@ -132,7 +132,7 @@ var checkVariableType = function(vars, optionalPrefix) {
 };
 
 var callFunction = function(funcName, output, inputs) {
-    var osgShader = meosgShader;
+    var osgShader = require('../osgShader/osgShader.js');
 //Nathan
 
 

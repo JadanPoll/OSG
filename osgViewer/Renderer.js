@@ -8,8 +8,8 @@ import StateGraph from '../osg/StateGraph.js';
 import { vec4 } from '../osg/glMatrix.js';
 import osgShader from '../osgShader/osgShader.js';
 import DisplayGraph from '../osgUtil/DisplayGraph.js';
-import meosg from '../osg/osg.js'
-import meView from '../osgViewer/View.js'
+
+
 var Renderer = function(camera) {
     Object.call(this);
 
@@ -40,7 +40,7 @@ utils.createPrototypeObject(
             this.getCamera().setClearColor(vec4.create());
             this.setRenderStage(new RenderStage());
 
-            var osg = meosg;
+            var osg = require('../osg/osg.js');
             var stateSet = this.getCamera().getOrCreateStateSet();
             stateSet.setAttributeAndModes(new osg.Material());
             stateSet.setAttributeAndModes(new osg.Depth());
@@ -141,7 +141,7 @@ utils.createPrototypeObject(
             camera.getBound();
 
             var light = view.getLight();
-            var View = meView;
+            var View = require('../osgViewer/View.js');
 
             if (light) {
                 switch (view.getLightingMode()) {

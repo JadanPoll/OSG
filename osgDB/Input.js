@@ -11,7 +11,7 @@ import DrawArrays from '../osg/DrawArrays.js';
 import DrawArrayLengths from '../osg/DrawArrayLengths.js';
 import DrawElements from '../osg/DrawElements.js';
 import primitiveSet from '../osg/primitiveSet.js';
-import mereaderParser from '../osgDB/readerParser.js'
+
 var rejectObject = utils.rejectObject;
 
 var Input = function(json, identifier) {
@@ -217,7 +217,7 @@ Input.prototype = {
             options.prefixURL = prefix;
         }
 
-        var ReaderParser = mereaderParser;
+        var ReaderParser = require( '../osgDB/readerParser.js');
 
         var readSceneGraph = function(data) {
             return ReaderParser.parseSceneGraph(data, options).then(function(child) {
@@ -570,7 +570,7 @@ Input.prototype = {
             return rejectObject("can't instanciate object " + prop);
         }
 
-        var ReaderParser = mereaderParser;
+        var ReaderParser = require('../osgDB/readerParser.js');
         var scope = ReaderParser.ObjectWrapper.serializers;
 
         if (this._cacheReadObject[prop]) {

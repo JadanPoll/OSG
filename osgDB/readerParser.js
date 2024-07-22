@@ -13,9 +13,7 @@ import { mat4 } from '../osg/glMatrix.js';
 import MatrixTransform from '../osg/MatrixTransform.js';
 import Projection from '../osg/Projection.js';
 import Registry from '../osgDB/Registry.js';
-import meInput from '../osgDB/Input.js';
-import meMaterial from '../osg/Material.js';
-import meTexture from '../osg/Texture.js';
+
 var ReaderParser = {};
 
 ReaderParser.ObjectWrapper = {};
@@ -40,7 +38,7 @@ ReaderParser.readNodeURL = function(url, options) {
 };
 
 ReaderParser.registry = function() {
-    var Input = meInput;
+    var Input = require('../osgDB/Input.js');
     if (ReaderParser.registry._input === undefined) {
         ReaderParser.registry._input = new Input();
     }
@@ -158,7 +156,7 @@ ReaderParser.parseSceneGraphDeprecated = function(node) {
                     notify.log('no texture on unit ' + t + ' skip it');
                     continue;
                 }
-                var Texture = meTexture;
+                var Texture = require('../osg/Texture.js');
                 var tex = new Texture();
                 setTexture(tex, textures[t]);
 
@@ -176,7 +174,7 @@ ReaderParser.parseSceneGraphDeprecated = function(node) {
 
         var material = getFieldBackwardCompatible('Material', json);
         if (material) {
-            var Material = meMaterial;
+            var Material = require('../osg/Material.js');
             var newmaterial = new Material();
             setMaterial(newmaterial, material);
             osgjs.setAttributeAndModes(newmaterial);

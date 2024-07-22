@@ -1,7 +1,7 @@
 import DisplayGraphRenderer from '../osgUtil/DisplayGraphRenderer.js';
 import DisplayGraphNode from '../osgUtil/DisplayGraphNode.js';
 import notify from '../osg/notify.js';
-import meRenderer from '../osgViewer/Renderer.js'
+
 var $;
 
 var init$ = function() {
@@ -143,7 +143,7 @@ DisplayGraph.prototype = {
             this.displayGraph();
         } else {
             // circular dependency
-            meRenderer.debugGraph = true;
+            require('../osgViewer/Renderer.js').debugGraph = true;
         }
     },
 
