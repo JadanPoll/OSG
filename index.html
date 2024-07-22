@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple OSG.js Example</title>
+    
+            <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="3d-canvas"></canvas>
+    <script type="module" src="./OSG.js"></script>
+<script type="module">
+    
+/*
+import OSG, {
+    osg,
+    osgAnimation,
+    osgDB,
+    osgGA,
+    osgUtil,
+    osgViewer,
+    osgShader,
+    osgShadow,
+    osgStats,
+    osgText,
+    osgWrappers,
+    osgPlugins
+} from './OSG.js';
+*/
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create a viewer
+            var canvas = document.getElementById('3d-canvas');
+            var viewer = new osgViewer.Viewer(canvas);
+
+            // Create the scene root
+            var root = new OSG.Node();
+
+            // Create a box geometry
+            var size = 1.0;
+            var box = osg.createTexturedBoxGeometry(0, 0, 0, size, size, size);
+
+            // Create a material for the box
+            var material = new osg.Material();
+            material.setDiffuse([1.0, 0.0, 0.0, 1.0]); // Red color
+
+            // Apply the material to the box
+            box.getOrCreateStateSet().setAttributeAndModes(material);
+
+            // Add the box to the scene
+            root.addChild(box);
+
+            // Set the scene data
+            viewer.setSceneData(root);
+
+            // Start the rendering loop
+            viewer.setupManipulator();
+            viewer.run();
+        });
+    </script>
+</body>
+</html>
